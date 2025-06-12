@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Dashboard - RuSha Stay</title>
+  <link rel="stylesheet" href="/css/userDashBord.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+  <!-- Sidebar Menu -->
+  <input type="checkbox" id="menu-toggle" />
+  <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+  <aside class="sidebar">
+    <div class="logo">🏨 RuSha Stay</div>
+    <ul>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/bookings">Bookings</a></li>
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/logout">Logout</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main>
+    <section class="welcome">
+      <h1>Welcome, <%= user.name %> 👋</h1>
+      <p>Explore top hotels, manage bookings, and enjoy a smooth stay experience.</p>
+    </section>
+
+    <div class="grid">
+      <!-- Recommended Hotels -->
+      <div class="card">
+        <h2>🌟 Recommended Hotels</h2>
+        <% hotels.forEach(hotel => { %>
+          <div class="hotel">
+            <h3><%= hotel.name %></h3>
+            <p><strong>City:</strong> <%= hotel.city %> | ⭐ <%= hotel.rating %>/5</p>
+            <a href="/hotel/<%= hotel.id %>">View Details</a>
+          </div>
+        <% }) %>
+      </div>
+
+      <!-- Recent Bookings -->
+      <div class="card">
+        <h2>📅 Recent Bookings</h2>
+        <% if (bookings.length > 0) { %>
+          <% bookings.forEach(b => { %>
+            <div class="booking">
+              <strong><%= b.hotel_name %></strong><br>
+              Check-in: <%= b.checkin_date %><br>
+              Status: <%= b.status %>
+            </div>
+          <% }) %>
+        <% } else { %>
+          <p>No bookings yet.</p>
+        <% } %>
+      </div>
+
+      <!-- About & Facilities -->
+      <div class="card full-width">
+        <h2>🏨 About & Facilities</h2>
+        <p>We connect you with the best-rated hotels tailored to your needs. Whether you're looking for luxury, comfort, or budget-friendly options — we’ve got it all!</p>
+        <ul class="facilities">
+          <li>✔️ Free Wi-Fi</li>
+          <li>✔️ 24/7 Customer Support</li>
+          <li>✔️ Secure Online Booking</li>
+          <li>✔️ Verified Hotel Ratings</li>
+          <li>✔️ Easy Cancellation</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 RuSha Stay</p>
+  </footer>
+
+</body>
+</html>
