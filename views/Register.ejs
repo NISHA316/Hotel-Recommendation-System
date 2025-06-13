@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="/css/register.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-section">
+      <h2>Sign Up</h2>
+      <p>Enter your email and password to register</p>
+      <form name="frm" action="/signup1" method="post">
+        <input type="text" placeholder="Name" name="username"   required>
+        <input type="email" placeholder="Email"name="useremail" required>
+        <input type="password" placeholder="Password" name="password" required>
+        <input type="text" placeholder="contact" name="contact" required>
+         <input type="text" value="User" name="type" readonly> 
+        <label class="checkbox">
+          <input type="checkbox" required>
+          I agree the <a href="#">Terms and Conditions</a>
+        </label>
+
+        <!-- <a href="/login" class="btn-link">Sign Up</a> -->'
+         <input type="submit" name="s" value="Sign Up">
+        <p class="signin-link">Already have an account? <a href="/login">Sign in</a></p>
+      </form>
+    </div>
+
+    <div class="info-section">
+        <img src="/images/RegLogo.jpeg" alt="Rocket" />
+      <h3>Your journey starts here</h3>
+      <p>Just as it takes a company to sustain a product, it takes a community to sustain a protocol.</p>
+    </div>
+
+    <%=msg%>
+  </div>
+</body>
+</html>

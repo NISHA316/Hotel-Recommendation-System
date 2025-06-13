@@ -2,64 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Authentication</title>
-  <link rel="stylesheet" href="/css/login.css"> <!-- External CSS -->
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-
   <div class="container">
-    <div class="form-box">
-      <h2>Authentication</h2>
-
-      <% if (typeof msg !== 'undefined' && msg) { %>
-        <div class="error-msg"><%= msg %></div>
-      <% } %>
-
-      <div class="toggle-btn">
-        <button class="btn active" onclick="showLogin()">Login</button>
-        <button class="btn" onclick="showSignup()">Signup</button>
-      </div>
-
-      <!-- Login Form -->
-      <form id="loginForm" class="form" action="/validate" method="POST">
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <a href="#">Forgot password?</a>
-        <button type="submit" class="submit-btn">Login</button>
-        <p>Not a member? <a href="#" onclick="showSignup()">Signup now</a></p>
-        <div><%=msg%></div>
-      </form>
-
-      <!-- Signup Form -->
-      <form id="signupForm" class="form hidden" action="/signup" method="POST">
-        <input type="text" name="username" placeholder="Full UserName" required>
-        <input type="text" name="useremail" placeholder="Email Address" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="text" name="contact" placeholder="contact" required>
-        <input type="text" name="type" placeholder="Type" required>
-        
-        <button type="submit" class="submit-btn">Signup</button>
-        <p>Already have an account? <a href="#" onclick="showLogin()">Login now</a></p>
-      </form>
+    <div class="left-panel">
+      <h2>Hello!<br><span>Have a</span><br><strong>GOOD DAY</strong></h2>
     </div>
-    <!-- <h1 style="color: red;"><%=msg%></h1> -->
-  </div>
-
-  <script>
-    function showLogin() {
-      document.getElementById('loginForm').classList.remove('hidden');
-      document.getElementById('signupForm').classList.add('hidden');
-      document.querySelector('.btn:nth-child(1)').classList.add('active');
-      document.querySelector('.btn:nth-child(2)').classList.remove('active');
-    }
-
-    function showSignup() {
-      document.getElementById('signupForm').classList.remove('hidden');
-      document.getElementById('loginForm').classList.add('hidden');
-      document.querySelector('.btn:nth-child(2)').classList.add('active');
-      document.querySelector('.btn:nth-child(1)').classList.remove('active');
-    }
-  </script>
-
+    <div class="right-panel">
+      <h2>Login</h2>
+       <form name="frm" action="/validate1" method="post"> 
+        <label>Username</label>
+        <input type="text" placeholder="Enter username" name="username" required>
+        
+        <label>Password</label>
+        <input type="password" placeholder="Enter password" name="password" required>
+        <select name="type">
+          <option value="admin">Admin</option>
+          <option value="User">User</option>
+        </select>
+        <a href="#" class="forgot">Forgot password?</a>
+        <input type="submit" value="login" name="s">
+      <p class="signup-link">Don't have any account? <a href="#">Create an account</a></p>
+    </form>
+    
+    </div>
+    </div>
 </body>
 </html>

@@ -2,20 +2,30 @@ let router = require("express").Router();
 let ctrl = require("../controllers/regctrl.js"); // ✅ This is correct
 let multer=require("multer");
 let path=require("path");
-router.get("/", ctrl.homepage);
-router.get("/login", ctrl.loginPage);
+router.get("/", ctrl.homepage);//first page login button
+ router.get("/login", ctrl.loginPage);
 // Handle POST /signup
 // router.post('/signup', (req, res) => {
 //     const { username, useremail, password, contact, type } = req.body;
 //     console.log('Signup Data:', req.body);
 //     res.send('Signup successful');
 //   });
-router.post("/signup",ctrl.signuser);
+router.post("/signup1", ctrl.saveuser); // <- ctrl.signUp is NOT a function
+router.get("/signup",ctrl.Registerpage)
 // router.post("/login",ctrl.loginPage);
-router.post("/validate", ctrl.validateUser);          
-router.post("/updateProfile", ctrl.updateProfile);    
-router.get("/dashboard", ctrl.dashboard);
+router.post("/validate1", ctrl.validateUser);          
+//router.post("/updateProfile", ctrl.updateProfile);    
+router.get("/userDashboard", ctrl.Userdashboard);
+router.get("/admindashbord", ctrl.adminDashbord); // ✅ Admin Dashboard
+//router.get("/adminDashboard",ctrl.adminDashbord);
+router.get("/loginpage",(req,res)=>
+{
+    res.render("login.ejs");
+});
 
+//router.get("/adminDashbord",ctrl.adminDashbord)
+  
+   
 
 
 // const storage = multer.diskStorage({
@@ -30,7 +40,7 @@ router.get("/dashboard", ctrl.dashboard);
 // // Create the upload middleware
 // const upload = multer({ storage: storage });
 
-
+router.post("/saveuser",ctrl.saveuser);//
 module.exports = router;
 
 
