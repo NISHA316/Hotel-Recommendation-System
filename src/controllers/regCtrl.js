@@ -73,7 +73,7 @@ exports.validateUser = async (req, res) => {
   
       // Redirect based on user type
       if (user.type.toLowerCase() === "admin") {
-        return res.redirect("/userDashBoard");
+        return res.redirect("/admindashbord");
       } else if (user.type.toLowerCase() === "user") {
         return res.redirect("/userDashBoard");
       } else {
@@ -88,26 +88,28 @@ exports.validateUser = async (req, res) => {
   
  exports.Userdashboard = (req, res) => {
 
-    console.log("user");
-     if (!req.session.userid || req.session.role !== "admin") {
+    console.log("req.session", req.session);
+     if (!req.session.userid || req.session.role !== "User") {
         //  return res.redirect("/userDashBord.js");
-        return res.render("userDashboard.ejs");
+
+        return res.render("login.ejs");
         
      }
 
-     res.render("userDashboard.ejs", { adminname: "Admin" });
+     res.render("userDashboard.ejs", { adminname: "admin" });
  };
 
  
  exports.adminDashbord = (req, res) => {
-    console.log("admin");
+    console.log("req.session", req.session);
 
     // Check if user is not logged in or not an admin
     if (!req.session.userid || req.session.role !== "admin") {
+        console.log("authentication failed");
         return res.redirect("/login"); // redirect to login if not admin
     }
 
-    res.render("adminDashboard.ejs", { adminname: "Admin" }); // render the admin dashboard
+    res.render("adminDashBord.ejs", { adminname: "Admin" }); // render the admin dashboard
 };
 
 
