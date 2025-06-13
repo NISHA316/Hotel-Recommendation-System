@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #1e1e2f;
+    color: #333;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column; /* stack on small screen */
+    height: auto;
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+  
+  .form-section {
+    padding: 30px 20px;
+  }
+  
+  .form-section h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+  
+  .form-section p {
+    margin-bottom: 20px;
+    color: #777;
+    font-size: 14px;
+  }
+  
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .checkbox {
+    font-size: 13px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox input {
+    margin-right: 8px;
+  }
+  
+  form button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to right, #ff2ead, #7928ca);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+  }
+  
+  form button:hover {
+    opacity: 0.9;
+  }
+  
+  .signin-link {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 13px;
+  }
+  
+  .signin-link a {
+    color: #7928ca;
+    text-decoration: none;
+  }
+  
+  .info-section {
+    background: linear-gradient(to bottom right, #ff2ead, #7928ca);
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .info-section img {
+    width: 80px;
+    margin-bottom: 15px;
+  }
+  
+  .info-section h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .info-section p {
+    font-size: 13px;
+  }
+  
+  /* Responsive tweak */
+  @media (min-width: 768px) {
+    .container {
+      flex-direction: row;
+      height: 80vh;
+    }
+  
+    .form-section,
+    .info-section {
+      flex: 1;
+    }
+  
+    .form-section {
+      padding: 40px;
+    }
+  
+    .info-section {
+      padding: 40px 30px;
+    }
+  }
+  .logo-img {
+    width:300px;
+    height: 200px;
+    object-fit: contain; /* or cover if you want to fill space */
+
+  }
+  .btn-link {
+    display: inline-block;
+    width: 150px;
+    height: 45px;
+    line-height: 45px;
+    background: linear-gradient(to right, #ff2ead, #7928ca);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-link:hover {
+    background: linear-gradient(to right, #e91e63, #6a1b9a);
+    transform: scale(1.05);
+  }
+  
+  
+    
